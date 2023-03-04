@@ -1,0 +1,28 @@
+# ninja log v5
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/libflutter_linux_gtk.so	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_engine.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_method_call.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_method_response.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_value.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/fl_view.h	928d9eab2c8f457a
+1	22055	0	/home/hamza/Flutter Projects/Flutter-Bloc/linux/flutter/ephemeral/flutter_linux/flutter_linux.h	928d9eab2c8f457a
+1	22055	0	flutter/_phony_	928d9eab2c8f457a
+22063	23642	1677957560577091703	CMakeFiles/flutter_bloc_implementation.dir/flutter/generated_plugin_registrant.cc.o	5a5c7b60f47c61c1
+22061	23648	1677957560581091785	CMakeFiles/flutter_bloc_implementation.dir/main.cc.o	23504623c47dcc63
+22062	23742	1677957560677093750	CMakeFiles/flutter_bloc_implementation.dir/my_application.cc.o	255ed2ce268cefd9
+23742	24212	1677957561153103501	intermediates_do_not_run/flutter_bloc_implementation	749a1fb79f4725d3
+24212	24750	0	CMakeFiles/install.util	844745a0a6d9e241
