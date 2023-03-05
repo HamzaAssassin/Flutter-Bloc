@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_implementation/categories/bloc/categories_bloc.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +8,7 @@ import '../widgets/categories_widget.dart';
 
 class CategoriesPage extends StatelessWidget {
   const CategoriesPage({super.key});
-
+  static const pageName = "category";
   @override
   Widget build(BuildContext context) {
     CategoriesBloc categoriesBloc =
@@ -31,9 +32,11 @@ class CategoriesPage extends StatelessWidget {
               categoriesList: state.categoriesList,
             );
           } else if (state is CategoriesErrorState) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text(state.errorMessage),
-            ));
+            SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text(state.errorMessage),
+              ));
+            });
             return const SizedBox();
           } else if (state is CategoriesEmptyState) {
             return const CategoriesEmptyUI();

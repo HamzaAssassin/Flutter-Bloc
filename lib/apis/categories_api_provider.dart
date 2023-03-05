@@ -5,6 +5,7 @@ import '../categories/model/categories.dart';
 class CategoriesAPIProvider extends APIProvider {
   @override
   String get apiUrl => '/api/FoodDelivery/PublicGetListCategory';
+
   static CategoriesAPIProvider? _instance;
   late List<Categories> categoriesList = [];
 

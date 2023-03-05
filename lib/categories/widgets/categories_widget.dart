@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../categoriyProduct/view/category_products_view.dart';
 import '../model/categories.dart';
 
 class CategoriesLoadingUI extends StatelessWidget {
@@ -35,6 +36,10 @@ class CategoriesLoadedUI extends StatelessWidget {
             ),
             elevation: 10,
             child: ListTile(
+              onTap: () {
+                Navigator.of(context).pushNamed(CategoryProductsPage.pageName,
+                    arguments: categoriesList[index]);
+              },
               dense: true,
               leading: CircleAvatar(
                 backgroundColor: const Color(0xff0a3049),
@@ -43,7 +48,6 @@ class CategoriesLoadedUI extends StatelessWidget {
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
-        
               title: Text(
                 categoriesList[index].categoryTitle,
                 style: const TextStyle(
