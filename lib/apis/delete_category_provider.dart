@@ -12,11 +12,9 @@ class DeleteCategoriesAPIProvider extends APIProvider {
   }
 
   Future<String> deleteCategory(int id) async {
-    var body = await delete(id: 34) as Map<String, dynamic>;
+    var body = await delete(id: id) as Map<String, dynamic>;
 
     String status = body.entries.first.value as String;
-
-     
     return status;
   }
 }

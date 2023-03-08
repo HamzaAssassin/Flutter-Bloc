@@ -32,9 +32,28 @@ class CategoriesPage extends StatelessWidget {
               categoriesList: state.categoriesList,
             );
           } else if (state is CategoryDeletedState) {
+            _showSnackBar(context, state.status);
             return CategoriesLoadedUI(
               categoriesList: state.categoriesList,
-              status: state.status,
+            );
+          } else if (state is CategoryAddState) {
+            if (state.status) {
+              _showSnackBar(context, "Added Successfully");
+            } else {
+              _showSnackBar(context, "Addition Failed");
+            }
+            return CategoriesLoadedUI(
+              categoriesList: state.categoriesList,
+            );
+          }
+          else if (state is CategoryUpdateState) {
+            if (state.isUpdate) {
+              _showSnackBar(context, "Updated Successfully");
+            } else {
+              _showSnackBar(context, "Update Failed");
+            }
+            return CategoriesLoadedUI(
+              categoriesList: state.categoriesList,
             );
           } else if (state is CategoriesErrorState) {
             SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
@@ -52,4 +71,14 @@ class CategoriesPage extends StatelessWidget {
       ),
     );
   }
+}
+
+void _showSnackBar(BuildContext context, String text) {
+  SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(text),
+      ),
+    );
+  });
 }

@@ -2,8 +2,10 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../apis/add_category_provider.dart';
 import '../../apis/categories_api_provider.dart';
 import '../../apis/delete_category_provider.dart';
+import '../../apis/update_category_provider.dart';
 import '../model/categories.dart';
 
 part 'categories_event.dart';
@@ -14,9 +16,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     CategoriesAPIProvider apiProvider = CategoriesAPIProvider();
     DeleteCategoriesAPIProvider deleteCategoriesAPIProvider =
         DeleteCategoriesAPIProvider();
-    // on<DeleteCategoryByIdEvent>((event, emit) async {
-    //   await deleteCategoriesAPIProvider.deleteCategory(event.id);
-    // });
+    AddCategoryAPIProvider addCategoryAPIProvider = AddCategoryAPIProvider();
+    UpdateCategoryProvider updateCategoryProvider = UpdateCategoryProvider();
+
     on<CategoriesEvent>((event, emit) async {
       emit.call(CategoriesLoadingState());
       try {
@@ -33,9 +35,19 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
           List<Categories> categoriesList = await apiProvider.fetchCategories();
           emit.call(CategoryDeletedState(
               categoriesList: categoriesList, status: status));
+        } else if (event is AddCategoryEvent) {
+          bool status = await addCategoryAPIProvider.addCategory(event.title);
+          List<Categories> categoriesList = await apiProvider.fetchCategories();
+          emit.call(
+              CategoryAddState(categoriesList: categoriesList, status: status));
+        } else if (event is UpdateCategoryEvent) {
+          bool isUpdate = await updateCategoryProvider.updateCategory(
+              event.title, event.categoryId);
+          List<Categories> categoriesList = await apiProvider.fetchCategories();
+          emit.call(CategoryUpdateState(
+              categoriesList: categoriesList, isUpdate: isUpdate));
         }
       } on Exception catch (e) {
-        print(e.toString());
         emit.call(
             const CategoriesErrorState(errorMessage: "Something went wrong"));
       }

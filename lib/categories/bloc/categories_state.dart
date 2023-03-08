@@ -29,7 +29,29 @@ class CategoriesLoadedState extends CategoriesState {
 class CategoryDeletedState extends CategoriesState {
   final List<Categories> categoriesList;
   final String status;
-  const CategoryDeletedState({required this.categoriesList,required this.status});
+  const CategoryDeletedState(
+      {required this.categoriesList, required this.status});
+
+  @override
+  List<Object> get props => [categoriesList];
+}
+
+@immutable
+class CategoryAddState extends CategoriesState {
+  final List<Categories> categoriesList;
+  final bool status;
+  const CategoryAddState({required this.categoriesList, required this.status});
+
+  @override
+  List<Object> get props => [categoriesList];
+}
+
+@immutable
+class CategoryUpdateState extends CategoriesState {
+  final List<Categories> categoriesList;
+  final bool isUpdate;
+  const CategoryUpdateState(
+      {required this.categoriesList, required this.isUpdate});
 
   @override
   List<Object> get props => [categoriesList];

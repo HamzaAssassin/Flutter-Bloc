@@ -28,8 +28,38 @@ abstract class APIProvider {
     // print(response.statusCode.toString() + "-------------------------");
     if (response.isSucess) {
       return await jsonDecode(response.body);
-    } 
+    }
     //  print(response.statusCode.toString() + "-------------------------");
     return null;
+  }
+
+  dynamic post({String title = "string"}) async {
+    var response = await http.post(
+      Uri.parse(url),
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({"CategoryTitle": title}),
+    );
+    // print(response.statusCode.toString() + "-------------------------");
+    if (response.isSucess) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  dynamic update({int id = 0, String title = ""}) async {
+    var response = await http.put(
+      Uri.parse(url),
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode(
+        {"CategoryId": id, "CategoryTitle": title},
+      ),
+    );
+    // print(response.statusCode.toString() + "-------------------------");
+    if (response.isSucess) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
