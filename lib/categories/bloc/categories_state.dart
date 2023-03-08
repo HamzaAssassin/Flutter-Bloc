@@ -26,6 +26,16 @@ class CategoriesLoadedState extends CategoriesState {
 }
 
 @immutable
+class CategoryDeletedState extends CategoriesState {
+  final List<Categories> categoriesList;
+  final String status;
+  const CategoryDeletedState({required this.categoriesList,required this.status});
+
+  @override
+  List<Object> get props => [categoriesList];
+}
+
+@immutable
 class CategoriesErrorState extends CategoriesState {
   final String errorMessage;
   const CategoriesErrorState({required this.errorMessage});

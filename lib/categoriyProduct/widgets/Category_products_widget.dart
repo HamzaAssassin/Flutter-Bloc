@@ -92,9 +92,11 @@ class CategoryProductLoadedUI extends StatelessWidget {
                   height: 8.0,
                 ),
                 Expanded(
-                  child: Image.asset(
-                    "assets/images/biryani.png",
-                  ),
+                  child: productssList[index].imageFile.isNotEmpty
+                      ? Image.network(
+                          "https://food.elms.pk${productssList[index].imageFile}",
+                        )
+                      : Image.asset("assets/images/biryani.png"),
                 ),
                 const SizedBox(
                   height: 8.0,

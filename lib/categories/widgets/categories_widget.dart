@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 import '../../categoriyProduct/view/category_products_view.dart';
+import '../bloc/categories_bloc.dart';
 import '../model/categories.dart';
 
 class CategoriesLoadingUI extends StatelessWidget {
@@ -15,13 +16,17 @@ class CategoriesLoadingUI extends StatelessWidget {
 }
 
 class CategoriesLoadedUI extends StatelessWidget {
-  const CategoriesLoadedUI({super.key, required this.categoriesList});
+  const CategoriesLoadedUI(
+      {super.key, required this.categoriesList, this.status = ""});
   final List<Categories> categoriesList;
+  final String status;
   @override
   Widget build(BuildContext context) {
     // var screenSize = MediaQuery.of(context).size;
     // var height = screenSize.height;
     // var width = screenSize.width;
+    CategoriesBloc categoriesBloc =
+        Provider.of<CategoriesBloc>(context, listen: false);
     return Scaffold(
       body: ListView.builder(
         //padding: const EdgeInsets.all(10),
@@ -64,9 +69,15 @@ class CategoriesLoadedUI extends StatelessWidget {
               ),
               tileColor: const Color(0xfffeedfa),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  categoriesBloc.add(DeleteCategoryByIdEvent(
+                      id: categoriesList[index].categoryId));
+
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text(status)));
+                },
                 icon: Icon(
-                  Icons.favorite,
+                  Icons.delete,
                   color: Colors.black.withOpacity(0.7),
                   shadows: [
                     BoxShadow(

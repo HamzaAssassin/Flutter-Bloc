@@ -18,4 +18,18 @@ abstract class APIProvider {
     }
     return null;
   }
+
+  dynamic delete({int id = 0}) async {
+    var response = await http.post(
+      Uri.parse(url),
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({"CategoryId": id}),
+    );
+    // print(response.statusCode.toString() + "-------------------------");
+    if (response.isSucess) {
+      return await jsonDecode(response.body);
+    } 
+    //  print(response.statusCode.toString() + "-------------------------");
+    return null;
+  }
 }

@@ -22,11 +22,8 @@ class CategoryProductBloc
               CategoryProductLoadedState(categoryProductList: productList));
         }
       } catch (e) {
-        print("llllllllllllllllllll");
-        print(e.toString());
         emit.call(const CategoryProductErrorState(
             errorMessage: "Something went wrong"));
-        ;
       }
     });
   }

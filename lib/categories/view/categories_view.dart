@@ -12,7 +12,7 @@ class CategoriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CategoriesBloc categoriesBloc =
-        Provider.of<CategoriesBloc>(context, listen: false);
+        BlocProvider.of<CategoriesBloc>(context, listen: false);
     categoriesBloc.add(FetchCategoriesEvent());
     return Scaffold(
       appBar: AppBar(
@@ -30,6 +30,11 @@ class CategoriesPage extends StatelessWidget {
           } else if (state is CategoriesLoadedState) {
             return CategoriesLoadedUI(
               categoriesList: state.categoriesList,
+            );
+          } else if (state is CategoryDeletedState) {
+            return CategoriesLoadedUI(
+              categoriesList: state.categoriesList,
+              status: state.status,
             );
           } else if (state is CategoriesErrorState) {
             SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
